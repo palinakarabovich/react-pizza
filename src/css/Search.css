@@ -1,0 +1,21 @@
+.search{
+  position: relative;
+}
+
+.search__input{
+  width: 350px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid grey;
+  box-sizing: border-box;
+  padding: 5px 15px;
+}
+
+.search__close-button{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
