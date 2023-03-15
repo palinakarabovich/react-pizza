@@ -17,11 +17,11 @@ The code is divided into components, to get data, the request is sent to the ser
 
 ## To Do
 
-[] Adapt the layout for different screen sizes
-[] Add a popup after placing an order
-[] Add a popup with pizza information
-[] Add animations for buttons
-[] Think through the logic of different prices for different pizza sizes
+- [ ] Adapt the layout for different screen sizes
+- [ ] Add a popup after placing an order
+- [ ] Add a popup with pizza information
+- [ ] Add animations for buttons
+- [ ] Think through the logic of different prices for different pizza sizes
 
 ## Installation
 
