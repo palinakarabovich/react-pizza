@@ -62,7 +62,7 @@ const Cart: React.FC = () => {
                 <button className='row__delete-button' onClick={() => onClickDeleteItem(pizza)} />
               </li>
             ))
-            : <p>The cart is empty. Choose your favourite pizza <Link to='/' className="cart__link">here</Link></p>
+            : <p>The cart is empty. Choose your favourite pizza <Link to='react-pizza/' className="cart__link">here</Link></p>
         }
       </ul>
       {

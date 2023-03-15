@@ -32,3 +32,4 @@ To start the application, run:
 
 ## Link
 Open [localhost](http://localhost:3000) to view it in the browser after running the app.
+App on [GITHUB-PAGES](https://palinakarabovich.github.io/react-pizza/)

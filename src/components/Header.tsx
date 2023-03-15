@@ -24,7 +24,7 @@ const Header: React.FC = () => {
   return (
     <header className="header">
       <div className="header__wrapper">
-        <Link to='/' className="header__link"><div className="header__logo-block">
+        <Link to='react-pizza/' className="header__link"><div className="header__logo-block">
           <div className="header__logo-image"></div>
           <div className="header__moto-block">
             <p className="header__moto-block__first-line">react pizza</p>
@@ -33,9 +33,9 @@ const Header: React.FC = () => {
         </div>
         </Link>
         {
-          location.pathname !== '/cart'
+          location.pathname !== '/react-pizza/cart'
           && <>< Search />
-            <Link to='/cart' className="header__cart-block header__cart">
+            <Link to='react-pizza/cart' className="header__cart-block header__cart">
               <p className="header__cart-price">{totalPrice} $</p>
               <div className="header__cart-image"></div>
               <p className="header__cart-quantity">{totalQuantity}</p>
