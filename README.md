@@ -23,6 +23,9 @@ The code is divided into components, to get data, the request is sent to the ser
 - [ ] Add animations for buttons
 - [ ] Think through the logic of different prices for different pizza sizes
 
+
+
+
 ### Installation
 To install the dependencies, run the following command:
 `npm install`
