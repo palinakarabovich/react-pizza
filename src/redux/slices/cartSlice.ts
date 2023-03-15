@@ -27,21 +27,17 @@ export const cartSlice = createSlice({
       } else {
         state.items.push({ ...action.payload, quantity: 1, _id })
       }
-      state.totalPrice = state.totalPrice + action.payload.price;
+      state.totalPrice = Number((state.totalPrice + action.payload.price).toFixed(2));
       state.totalQuantity = state.totalQuantity + 1;
     },
-    
-    addToCartFromStorage: (state, action: PayloadAction<PizzaAddToCart>) => {
-      state.storage = true;
-      const _id = Number(`${action.payload.id}${action.payload.selectedDough}${action.payload.selectedSize}`);
-      const findItem = state.items.find((obj) => obj._id === _id);
-      if (findItem) {
-        findItem.quantity++;
-      } else {
-        state.items.push({ ...action.payload, quantity: 1, _id })
+
+    addToCartFromStorage: (state, action) => {
+      if (!state.storage) {
+        state.items = action.payload;
+        state.totalQuantity = action.payload.reduce((prev: number, i: PizzaInCart) => prev + i.quantity, 0);
+        state.totalPrice = Number((action.payload.reduce((prev: number, i: PizzaInCart) => prev + i.price*i.quantity, 0)).toFixed(2));
       }
-      state.totalPrice = state.totalPrice + action.payload.price;
-      state.totalQuantity = state.totalQuantity + 1;
+      state.storage = true;
     },
 
     countMinus: (state, action: PayloadAction<PizzaInCart>) => {
@@ -54,7 +50,7 @@ export const cartSlice = createSlice({
       } else if (findItem) {
         findItem.quantity--;
       }
-      state.totalPrice = state.totalPrice - action.payload.price;
+      state.totalPrice = Number((state.totalPrice - action.payload.price).toFixed(2));
       state.totalQuantity = state.totalQuantity - 1;
     },
 
@@ -66,7 +62,7 @@ export const cartSlice = createSlice({
       if (findItem) {
         findItem.quantity++;
       }
-      state.totalPrice = state.totalPrice + action.payload.price;
+      state.totalPrice = Number((state.totalPrice + action.payload.price).toFixed(2));
       state.totalQuantity = state.totalQuantity + 1;
     },
 
@@ -77,7 +73,7 @@ export const cartSlice = createSlice({
       });
       if (findItem) {
         state.items = state.items.filter((obj) => obj._id !== findItem._id)
-        state.totalPrice = state.totalPrice - findItem.quantity * findItem.price;
+        state.totalPrice = Number((state.totalPrice - findItem.quantity * findItem.price).toFixed(2));
         state.totalQuantity = state.totalQuantity - 1 * findItem.quantity;
       }
     },

@@ -16,9 +16,8 @@ const Header: React.FC = () => {
   React.useEffect(() => {
     const pizzas = localStorage.getItem('cart');
     if (pizzas && !storage) {
-      JSON.parse(pizzas).forEach((p: PizzaInCart) => {
-        dispatch(addToCartFromStorage(p));
-      })
+        const pizzasObj = JSON.parse(pizzas)
+        dispatch(addToCartFromStorage(pizzasObj));
     }
   }, [])
 

@@ -6,21 +6,20 @@ import { useAppSelector } from '../hooks/useSelector';
 import { useAppDispatch } from '../hooks/useDispatch';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Cart: React.FC = () => {
 
   const { items, totalPrice, totalQuantity } = useAppSelector(state => state.cart);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
-  // React.useEffect(() => {
-  //   if(items.length > 0) {
-  //     localStorage.setItem('cart', JSON.stringify(items));
-  //   }
-  // }, [items, totalPrice, totalQuantity])
+  React.useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(items));
+  }, [items]);
 
   const onClickMinus = (item: PizzaInCart) => {
     dispatch(countMinus(item));
-    localStorage.setItem('cart', JSON.stringify(items));
   }
 
   const onClickPlus = (item: PizzaInCart) => {
@@ -28,11 +27,11 @@ const Cart: React.FC = () => {
   }
 
   const onClickDeleteItem = (item: PizzaInCart) => {
-    dispatch(removeItem(item))
+    dispatch(removeItem(item));
   }
 
   const onClickResetCart = () => {
-    dispatch(clearCart())
+    dispatch(clearCart());
   }
 
   return (
@@ -52,14 +51,14 @@ const Cart: React.FC = () => {
                 <div className='row__text'>
                   <img src={pizza.imageUrl} className="row__img" alt="pizza" />
                   <h3 className='row__text-title'>{pizza.title}</h3>
-                  <p className='row__text-description'>{pizza.dough} тесто, {pizza.size} сm</p>
+                  <p className='row__text-description'>{pizza.dough}, {pizza.size} сm</p>
                 </div>
                 <div className='row__quantity'>
                   <button className='row__quantity-minus-button' onClick={() => onClickMinus(pizza)} />
                   <p className='row__quantity-number'>{pizza.quantity}</p>
                   <button className='row__quantity-plus-button' onClick={() => onClickPlus(pizza)} />
                 </div>
-                <p className='row__price'>{pizza.price} </p>
+                <p className='row__price'>{pizza.price}$</p>
                 <button className='row__delete-button' onClick={() => onClickDeleteItem(pizza)} />
               </li>
             ))
@@ -71,11 +70,11 @@ const Cart: React.FC = () => {
         &&
         <div className='cart__total'>
           <p className='cart__total-text'>Total pizzas: <span className="cart__total-text-number">{totalQuantity} </span></p>
-          <p className='cart__total-text'>Total price:  <span className="cart__total-text-price">{totalPrice} </span></p>
+          <p className='cart__total-text'>Total price:  <span className="cart__total-text-price">{totalPrice}$</span></p>
         </div>
       }
       <div className='cart__buttons'>
-        <button className='cart__buttons-back'>Back</button>
+        <button className='cart__buttons-back' onClick={() => navigate(-1)}>Back</button>
         <button className={`cart__buttons-pay ${items.length === 0 ? 'cart__buttons-pay_inactive' : ''}`} >Pay and order</button>
       </div>
     </div>

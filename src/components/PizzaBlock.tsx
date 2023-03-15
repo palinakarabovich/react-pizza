@@ -12,13 +12,13 @@ const PizzaBlock: React.FC<Pizza> = ({ imageUrl, title, types, sizes, price, id 
   const [selectedSizeCm, SetSelectedSizeCm] = React.useState<string>(sizes[0]);
   const [selectedDoughType, setSelectedDoughType] = React.useState<string>(typesArr[types[0]]);
   const [quantity, setQuantity] = React.useState<number>(0);
-
   const dispatch = useAppDispatch();
 
   const { items } = useAppSelector(state => state.cart);
 
   React.useEffect(() => {
     countQuantity();
+    localStorage.setItem('cart', JSON.stringify(items));
   }, [items]);
 
   const onClickAddToCart = () => {
@@ -26,7 +26,7 @@ const PizzaBlock: React.FC<Pizza> = ({ imageUrl, title, types, sizes, price, id 
       id,
       imageUrl,
       title,
-      price,
+      price: Number(price),
       dough: selectedDoughType,
       size: selectedSizeCm,
       selectedDough,
@@ -70,7 +70,7 @@ const PizzaBlock: React.FC<Pizza> = ({ imageUrl, title, types, sizes, price, id 
         </ul>
       </div>
       <div className="pizza-block__checkout">
-        <p className="pizza-block__checkout-price">from {price} $</p>
+        <p className="pizza-block__checkout-price">from {price}$</p>
         <div className="pizza-block__checkout-button" onClick={onClickAddToCart}>
           <img src={plus} alt="plus" className="pizza-block__checkout-button-image" />
           Add to cart
