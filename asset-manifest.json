@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/react-pizza/static/css/main.3f759165.css",
+    "main.js": "/react-pizza/static/js/main.106f3553.js",
+    "static/media/logo.svg": "/react-pizza/static/media/logo.cf6d3b6be905864076d6.svg",
+    "static/media/Figtree-ExtraBold.ttf": "/react-pizza/static/media/Figtree-ExtraBold.da02456fcca0eaea57ef.ttf",
+    "static/media/Figtree-SemiBold.ttf": "/react-pizza/static/media/Figtree-SemiBold.1712ff836c2dde8da8a7.ttf",
+    "static/media/Figtree-Black.ttf": "/react-pizza/static/media/Figtree-Black.8a1d7570ac698625b162.ttf",
+    "static/media/Figtree-Medium.ttf": "/react-pizza/static/media/Figtree-Medium.f61ba8544b60a64d5791.ttf",
+    "static/media/Figtree-Bold.ttf": "/react-pizza/static/media/Figtree-Bold.76b93744d091281798dc.ttf",
+    "static/media/Figtree-Regular.ttf": "/react-pizza/static/media/Figtree-Regular.0a7c9d6b42b213a84442.ttf",
+    "static/media/Figtree-Light.ttf": "/react-pizza/static/media/Figtree-Light.be874f6fe0dbb23a475c.ttf",
+    "static/media/cart.png": "/react-pizza/static/media/cart.76a8a697165c3bb42776.png",
+    "static/media/cart-grey.png": "/react-pizza/static/media/cart-grey.a30e2c4558eeafe4a0be.png",
+    "static/media/close-button.svg": "/react-pizza/static/media/close-button.ca61cbd3189c6314a61f70cd3806a403.svg",
+    "index.html": "/react-pizza/index.html",
+    "static/media/delete-order.svg": "/react-pizza/static/media/delete-order.7696257a3cd8715ab8e7.svg",
+    "static/media/plus-orange.svg": "/react-pizza/static/media/plus-orange.60f22895d8481cbfb4ee.svg",
+    "static/media/plus.svg": "/react-pizza/static/media/plus.fd8c3c804f350e4704863a19a15fb36c.svg",
+    "static/media/minus.svg": "/react-pizza/static/media/minus.fe679d6907ef6db33dcc.svg",
+    "main.3f759165.css.map": "/react-pizza/static/css/main.3f759165.css.map",
+    "main.106f3553.js.map": "/react-pizza/static/js/main.106f3553.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3f759165.css",
+    "static/js/main.106f3553.js"
+  ]
+}
