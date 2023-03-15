@@ -11,8 +11,8 @@ function App() {
       <Header />
       <div className="content">
         <Routes>
-          <Route path='/' element={<MainPage />} />
-          <Route path='/cart' element={<Cart />} />
+          <Route path='/react-pizza/' element={<MainPage />} />
+          <Route path='/react-pizza/cart' element={<Cart />} />
         </Routes>
       </div>
     </div>
