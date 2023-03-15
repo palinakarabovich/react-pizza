@@ -3,7 +3,7 @@ import { useAppDispatch } from "../hooks/useDispatch";
 import { useAppSelector } from "../hooks/useSelector";
 import { setCategory } from "../redux/slices/filterSlice";
 
-const categories: string[] = ['Все', 'Мясные', 'Вегетерианские', 'Гриль', 'Остые', 'Закрытые']
+const categories: string[] = ['All', 'Meatlovers Special', 'Vegeterian', 'Grill', 'Spicy', 'Calzone']
 
 const Categories: React.FC = () => { 
 

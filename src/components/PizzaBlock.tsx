@@ -6,7 +6,7 @@ import { useAppDispatch } from '../hooks/useDispatch';
 import { useAppSelector } from '../hooks/useSelector';
 
 const PizzaBlock: React.FC<Pizza> = ({ imageUrl, title, types, sizes, price, id }) => {
-  const typesArr = ['традиционное', 'тонкое'];
+  const typesArr = ['american crust', 'italian crust'];
   const [selectedDough, setSelectedDough] = React.useState<number>(0);
   const [selectedSize, setSelectedSize] = React.useState<number>(0);
   const [selectedSizeCm, SetSelectedSizeCm] = React.useState<string>(sizes[0]);
@@ -65,15 +65,15 @@ const PizzaBlock: React.FC<Pizza> = ({ imageUrl, title, types, sizes, price, id 
         </ul>
         <ul className="pizza-block__selector_type_size pizza-size">
           {sizes.map((size, index) => (
-            <li className={`pizza-size__parameter ${selectedSize === index ? 'pizza-size__parameter_active' : ''}`} onClick={() => onClickSize(index, size)} key={index}> {size} см </li>
+            <li className={`pizza-size__parameter ${selectedSize === index ? 'pizza-size__parameter_active' : ''}`} onClick={() => onClickSize(index, size)} key={index}> {size} cm </li>
           ))}
         </ul>
       </div>
       <div className="pizza-block__checkout">
-        <p className="pizza-block__checkout-price">от {price} $</p>
+        <p className="pizza-block__checkout-price">from {price} $</p>
         <div className="pizza-block__checkout-button" onClick={onClickAddToCart}>
           <img src={plus} alt="plus" className="pizza-block__checkout-button-image" />
-          Добавить
+          Add to cart
           {quantity !== 0
             && <div className='pizza-block__checkout-button-quantity'>
               {quantity}

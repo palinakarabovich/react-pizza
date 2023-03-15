@@ -38,14 +38,14 @@ const MainPage: React.FC = () => {
         </div>
         <Sort />
       </div>
-      <h2 className="main-page__title">Все пиццы</h2>
+      <h2 className="main-page__title">All pizzas</h2>
       <div className="main-page__items">
         {loading && items.length === 0
           ? [...new Array(8)].map((_, index) => <PizzaLoaderSkeleton key={index} />)
           :
           items.length !== 0 ?
             items.map((pizza: Pizza, index: number) => <PizzaBlock {...pizza} key={index} />)
-            : <p>Пицц не найдено :-(</p>}
+            : <p>We can not find '{search}' pizza fo you.</p>}
       </div>
     </div>
   )

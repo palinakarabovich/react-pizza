@@ -11,7 +11,7 @@ const initialState: FilterSlice = {
   category: 0,
   search: '',
   sortType: {
-    name: 'популярности',
+    name: 'most popular',
     sortProperty: 'raiting'
   }
 }

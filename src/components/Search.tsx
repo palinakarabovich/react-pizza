@@ -32,7 +32,7 @@ const Search: React.FC = () => {
 
   return (
     <div className="search">
-      <input placeholder="Поиск..." className="search__input" value={value} onChange={onChangeInput} ref={inputRef} />
+      <input placeholder="Type to search..." className="search__input" value={value} onChange={onChangeInput} ref={inputRef} />
       {value && <img src={closeButton} className='search__close-button' alt='close-button' onClick={onClickClear} />}
     </div>
   )

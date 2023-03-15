@@ -9,9 +9,9 @@ const Sort: React.FC = () => {
   const sortType = useAppSelector(state => state.filter.sortType);
   const [popupOpen, setPopupOpen] = React.useState<boolean>(false);
   const sort: Category[] = [
-    { name: 'популярности', sortProperty: 'raiting' },
-    { name: 'цене', sortProperty: 'price' },
-    { name: 'алфавиту', sortProperty: 'title' }
+    { name: 'most popular', sortProperty: 'raiting' },
+    { name: 'price', sortProperty: 'price' },
+    { name: 'A-Z', sortProperty: 'title' }
   ];
   const [selectedCategoryIndex, setSelectedCategoryIndex] = React.useState<number>(0);
   const sortRef = React.useRef<HTMLDivElement>(null);
@@ -35,7 +35,7 @@ const Sort: React.FC = () => {
   return (
     <div className="sort" ref={sortRef}>
       <p className="sort__title">
-        Сортировка по:
+        Sort by:
       </p>
       <p className="sort__parameter" onClick={() => setPopupOpen(true)}>
         {sortType.name}

@@ -1,19 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { PizzaInCart } from "../@types/types";
 import { useAppDispatch } from "../hooks/useDispatch";
 import { useAppSelector } from "../hooks/useSelector";
 import { addToCartFromStorage } from "../redux/slices/cartSlice";
 import Search from "./Search";
 
-const Header:React.FC = () => {
+const Header: React.FC = () => {
 
   const { totalPrice, totalQuantity, storage } = useAppSelector(state => state.cart);
   const dispatch = useAppDispatch();
 
+  const location = useLocation();
+
   React.useEffect(() => {
     const pizzas = localStorage.getItem('cart');
-    if(pizzas && !storage){
+    if (pizzas && !storage) {
       JSON.parse(pizzas).forEach((p: PizzaInCart) => {
         dispatch(addToCartFromStorage(p));
       })
@@ -27,16 +29,20 @@ const Header:React.FC = () => {
           <div className="header__logo-image"></div>
           <div className="header__moto-block">
             <p className="header__moto-block__first-line">react pizza</p>
-            <p className="header__moto-block__second-line">самая вкусная пицца во вселенной</p>
+            <p className="header__moto-block__second-line">The most delicious pizza in the universe!</p>
           </div>
         </div>
         </Link>
-        <Search />
-        <Link to='/cart' className="header__cart-block header__cart">
-          <p className="header__cart-price">{totalPrice} $</p>
-          <div className="header__cart-image"></div>
-          <p className="header__cart-quantity">{totalQuantity}</p>
-        </Link>
+        {
+          location.pathname !== '/cart'
+          && <>< Search />
+            <Link to='/cart' className="header__cart-block header__cart">
+              <p className="header__cart-price">{totalPrice} $</p>
+              <div className="header__cart-image"></div>
+              <p className="header__cart-quantity">{totalQuantity}</p>
+            </Link>
+          </>
+        }
       </div>
     </header >
   )

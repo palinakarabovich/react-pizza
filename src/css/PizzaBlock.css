@@ -46,12 +46,12 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
-  text-align: center;
   letter-spacing: 0.015em;
   color: rgba(203, 203, 203);
   font-family: "Figtree", Arial, Helvetica, sans-serif;
   width: 100%;
   padding: 5px;
+  text-align: center;
 }
 
 .pizza-dough__parameter:hover {
