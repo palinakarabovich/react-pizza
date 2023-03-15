@@ -15,6 +15,7 @@ const MainPage: React.FC = () => {
   const search = useAppSelector(state => state.filter.search);
   const { loading, items } = useAppSelector(state => state.pizzas);
   const dispatch = useAppDispatch();
+  const cartItems = useAppSelector(state => state.cart.items);
 
   React.useEffect(() => {
     const params = {
@@ -22,6 +23,12 @@ const MainPage: React.FC = () => {
     }
     dispatch(fetchPizzas(params));
   }, [category, sortType, search, dispatch])
+
+  React.useEffect(() => {
+    if(cartItems.length > 0) {
+      localStorage.setItem('cart', JSON.stringify(cartItems));
+    }
+  }, [cartItems])
 
   return (
     <div className="main-page">

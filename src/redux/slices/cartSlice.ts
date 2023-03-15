@@ -5,12 +5,14 @@ type CartSlice = {
   items: PizzaInCart[];
   totalPrice: number;
   totalQuantity: number;
+  storage: boolean;
 }
 
 const initialState: CartSlice = {
   items: [],
   totalPrice: 0,
   totalQuantity: 0,
+  storage: false,
 }
 
 export const cartSlice = createSlice({
@@ -18,6 +20,19 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<PizzaAddToCart>) => {
+      const _id = Number(`${action.payload.id}${action.payload.selectedDough}${action.payload.selectedSize}`);
+      const findItem = state.items.find((obj) => obj._id === _id);
+      if (findItem) {
+        findItem.quantity++;
+      } else {
+        state.items.push({ ...action.payload, quantity: 1, _id })
+      }
+      state.totalPrice = state.totalPrice + action.payload.price;
+      state.totalQuantity = state.totalQuantity + 1;
+    },
+    
+    addToCartFromStorage: (state, action: PayloadAction<PizzaAddToCart>) => {
+      state.storage = true;
       const _id = Number(`${action.payload.id}${action.payload.selectedDough}${action.payload.selectedSize}`);
       const findItem = state.items.find((obj) => obj._id === _id);
       if (findItem) {
@@ -75,7 +90,7 @@ export const cartSlice = createSlice({
   }
 })
 
-export const { addToCart, countMinus, countPlus, removeItem, clearCart } = cartSlice.actions;
+export const { addToCart, countMinus, countPlus, removeItem, clearCart, addToCartFromStorage } = cartSlice.actions;
 
 
 export default cartSlice.reducer;

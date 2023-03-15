@@ -1,10 +1,24 @@
+import React from "react";
 import { Link } from "react-router-dom";
+import { PizzaInCart } from "../@types/types";
+import { useAppDispatch } from "../hooks/useDispatch";
 import { useAppSelector } from "../hooks/useSelector";
+import { addToCartFromStorage } from "../redux/slices/cartSlice";
 import Search from "./Search";
 
 const Header:React.FC = () => {
 
-  const { totalPrice, totalQuantity } = useAppSelector(state => state.cart);
+  const { totalPrice, totalQuantity, storage } = useAppSelector(state => state.cart);
+  const dispatch = useAppDispatch();
+
+  React.useEffect(() => {
+    const pizzas = localStorage.getItem('cart');
+    if(pizzas && !storage){
+      JSON.parse(pizzas).forEach((p: PizzaInCart) => {
+        dispatch(addToCartFromStorage(p));
+      })
+    }
+  }, [])
 
   return (
     <header className="header">

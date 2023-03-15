@@ -4,11 +4,18 @@ import { clearCart, countMinus, countPlus, removeItem } from '../redux/slices/ca
 import { PizzaInCart } from '../@types/types';
 import { useAppSelector } from '../hooks/useSelector';
 import { useAppDispatch } from '../hooks/useDispatch';
+import React from 'react';
 
 const Cart: React.FC = () => {
 
   const { items, totalPrice, totalQuantity } = useAppSelector(state => state.cart);
   const dispatch = useAppDispatch();
+
+  React.useEffect(() => {
+    if(items.length > 0) {
+      localStorage.setItem('cart', JSON.stringify(items));
+    }
+  }, [items, totalPrice, totalQuantity])
 
   const onClickMinus = (item: PizzaInCart) => {
     dispatch(countMinus(item));
