@@ -23,14 +23,13 @@ The code is divided into components, to get data, the request is sent to the ser
 - [ ] Add animations for buttons
 - [ ] Think through the logic of different prices for different pizza sizes
 
-## Installation
-
+### Installation
 To install the dependencies, run the following command:
 `npm install`
 
-## Installation
-
+### Running
 To start the application, run:
-`npm start` 
+`npm start`
 
-Open [localhost](http://localhost:3000) to view it in the browser.
+### Link
+Open [localhost](http://localhost:3000) to view it in the browser after running the app.
