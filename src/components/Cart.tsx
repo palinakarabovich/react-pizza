@@ -11,14 +11,15 @@ const Cart: React.FC = () => {
   const { items, totalPrice, totalQuantity } = useAppSelector(state => state.cart);
   const dispatch = useAppDispatch();
 
-  React.useEffect(() => {
-    if(items.length > 0) {
-      localStorage.setItem('cart', JSON.stringify(items));
-    }
-  }, [items, totalPrice, totalQuantity])
+  // React.useEffect(() => {
+  //   if(items.length > 0) {
+  //     localStorage.setItem('cart', JSON.stringify(items));
+  //   }
+  // }, [items, totalPrice, totalQuantity])
 
   const onClickMinus = (item: PizzaInCart) => {
     dispatch(countMinus(item));
+    localStorage.setItem('cart', JSON.stringify(items));
   }
 
   const onClickPlus = (item: PizzaInCart) => {
