@@ -4,6 +4,8 @@ This is a frontend part of an internet pizzeria, which allows filtering, sorting
 
 The code is divided into components, to get data, the request is sent to the server, a global store is created to store application data, the code is strictly typed with TypeScript, and the data added to the cart is stored in LocalStorage.
 
+Visit the app on [GITHUB-PAGES](https://palinakarabovich.github.io/react-pizza/)
+
 ## Technologies
 
 * ReactJS 18
@@ -15,7 +17,7 @@ The code is divided into components, to get data, the request is sent to the ser
 * React Content Loader
 * Lodash.Debounce
 
-## To Do
+## To Do's
 
 - [ ] Adapt the layout for different screen sizes
 - [ ] Add a popup after placing an order
@@ -23,13 +25,9 @@ The code is divided into components, to get data, the request is sent to the ser
 - [ ] Add animations for buttons
 - [ ] Think through the logic of different prices for different pizza sizes
 
-## Installation and Running
-To install the dependencies, run the following command:
-`npm install`
+## Getting Started
 
-To start the application, run:
-`npm start`
-
-## Link
-Open [localhost](http://localhost:3000) to view it in the browser after running the app.
-App on [GITHUB-PAGES](https://palinakarabovich.github.io/react-pizza/)
+1. Clone the repository.
+2. Install dependencies with `npm install`.
+3. Run the app with `npm start`.
+4. Navigate to [localhost](http://localhost:3000/react-pizza) in your browser to view the app.
